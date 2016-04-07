@@ -667,8 +667,11 @@ unsigned PoseEstimator::initialise()
 
             // Check that at least one of the points was within the threshold
             unsigned count_within_pixel_threshold = 0;
+            //DEBUG CODE!
+            back_projection_pixel_tolerance_ = 100000;
             for (unsigned ll = 0; ll < min_distances.size(); ++ll)
             {
+                std::cout << "min_distances(" << ll << ") = " << min_distances(ll) << std::endl;
               if (min_distances(ll) < back_projection_pixel_tolerance_)
               {
                 count_within_pixel_threshold++;
